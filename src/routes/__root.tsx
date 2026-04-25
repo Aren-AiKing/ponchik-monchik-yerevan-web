@@ -68,6 +68,13 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Ponchik Monchik" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Ponchik Monchik — Fresh ponchiks & cozy café in Yerevan" },
+      { name: "twitter:title", content: "Ponchik Monchik — Fresh ponchiks & cozy café in Yerevan" },
+      { name: "description", content: "A warm, modern website for Ponchik Monchik, a Yerevan café offering delicious ponchiks, coffee, and comfort food." },
+      { property: "og:description", content: "A warm, modern website for Ponchik Monchik, a Yerevan café offering delicious ponchiks, coffee, and comfort food." },
+      { name: "twitter:description", content: "A warm, modern website for Ponchik Monchik, a Yerevan café offering delicious ponchiks, coffee, and comfort food." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/200e6309-3143-4068-a78a-539ea4fc28d0/id-preview-4fff6791--4ff58fb1-17bc-49e4-8c08-75562d1739e3.lovable.app-1777114017455.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/200e6309-3143-4068-a78a-539ea4fc28d0/id-preview-4fff6791--4ff58fb1-17bc-49e4-8c08-75562d1739e3.lovable.app-1777114017455.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
