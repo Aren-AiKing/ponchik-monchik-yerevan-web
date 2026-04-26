@@ -9,4 +9,6 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
+  // Treat ?url imports as normal asset URLs (used in __root.tsx for SSR CSS)
+  assetsInclude: ["**/*.css"],
 });
