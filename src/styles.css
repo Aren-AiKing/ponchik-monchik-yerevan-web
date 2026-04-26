@@ -1,0 +1,201 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Ponchik Monchik — warm cozy café palette
+   cream, milk, caramel, chocolate, strawberry, gold */
+
+@theme inline {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 14px);
+  --radius-3xl: calc(var(--radius) + 22px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-cream: var(--cream);
+  --color-milk: var(--milk);
+  --color-caramel: var(--caramel);
+  --color-caramel-deep: var(--caramel-deep);
+  --color-chocolate: var(--chocolate);
+  --color-strawberry: var(--strawberry);
+  --color-strawberry-soft: var(--strawberry-soft);
+  --color-gold: var(--gold);
+
+  --shadow-soft: 0 4px 20px -8px color-mix(in oklab, var(--chocolate) 18%, transparent);
+  --shadow-warm: 0 18px 50px -20px color-mix(in oklab, var(--caramel-deep) 35%, transparent);
+  --shadow-pillow: 0 30px 60px -30px color-mix(in oklab, var(--chocolate) 30%, transparent);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Brand palette in oklch */
+  --cream: oklch(0.972 0.022 80);
+  --milk: oklch(0.99 0.008 80);
+  --caramel: oklch(0.7 0.12 60);
+  --caramel-deep: oklch(0.55 0.13 50);
+  --chocolate: oklch(0.27 0.05 40);
+  --strawberry: oklch(0.74 0.14 10);
+  --strawberry-soft: oklch(0.92 0.05 10);
+  --gold: oklch(0.78 0.13 85);
+
+  /* Semantic mapping */
+  --background: var(--cream);
+  --foreground: var(--chocolate);
+  --card: var(--milk);
+  --card-foreground: var(--chocolate);
+  --popover: var(--milk);
+  --popover-foreground: var(--chocolate);
+  --primary: var(--chocolate);
+  --primary-foreground: var(--cream);
+  --secondary: var(--strawberry-soft);
+  --secondary-foreground: var(--chocolate);
+  --muted: oklch(0.94 0.018 75);
+  --muted-foreground: oklch(0.45 0.04 45);
+  --accent: var(--strawberry);
+  --accent-foreground: var(--milk);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: var(--milk);
+  --border: oklch(0.88 0.02 70);
+  --input: oklch(0.92 0.018 70);
+  --ring: var(--caramel);
+}
+
+.dark {
+  --background: oklch(0.18 0.02 40);
+  --foreground: var(--cream);
+  --card: oklch(0.23 0.025 40);
+  --card-foreground: var(--cream);
+  --popover: oklch(0.23 0.025 40);
+  --popover-foreground: var(--cream);
+  --primary: var(--cream);
+  --primary-foreground: var(--chocolate);
+  --secondary: oklch(0.3 0.04 30);
+  --secondary-foreground: var(--cream);
+  --muted: oklch(0.28 0.03 40);
+  --muted-foreground: oklch(0.75 0.03 70);
+  --accent: var(--strawberry);
+  --accent-foreground: var(--milk);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: var(--caramel);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--color-foreground);
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--strawberry) 50%, transparent);
+    color: var(--chocolate);
+  }
+}
+
+/* Subtle paper grain on cream backgrounds */
+.bg-grain {
+  background-image:
+    radial-gradient(color-mix(in oklab, var(--caramel-deep) 6%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Soft pillow card */
+.card-pillow {
+  background: var(--milk);
+  border: 1px solid color-mix(in oklab, var(--caramel) 18%, transparent);
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-2xl);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Only apply hover lift on devices that actually support hover.
+   Without this guard, touch devices get a sticky elevated state after tap. */
+@media (hover: hover) {
+  .card-pillow:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-warm);
+  }
+}
+
+/* Decorative dot divider */
+.dot-divider::before,
+.dot-divider::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--caramel) 60%, transparent);
+  margin: 0 0.75rem;
+  vertical-align: middle;
+}
+
+/* Hide scrollbars on horizontal rails */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Performance helpers ─────────────────────────────────── */
+/* Applied by Framer Motion / GSAP animated elements */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* Framer Motion layout animations — prevent FOUC */
+[data-framer-motion] {
+  backface-visibility: hidden;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
